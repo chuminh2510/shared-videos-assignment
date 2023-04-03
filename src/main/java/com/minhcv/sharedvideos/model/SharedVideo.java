@@ -5,4 +5,6 @@ package com.minhcv.sharedvideos.model;
  * @since 03/04/2023
  */
 public class SharedVideo {
+    private String id;
+    //...
 }
