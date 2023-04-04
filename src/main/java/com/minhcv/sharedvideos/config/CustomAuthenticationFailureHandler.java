@@ -28,7 +28,7 @@ public class CustomAuthenticationFailureHandler extends SimpleUrlAuthenticationF
         String username = request.getParameter("username");
 
         if (userRepo.getByEmail(username) == null) {
-            getRedirectStrategy().sendRedirect(request, response, "/user-registration");
+            getRedirectStrategy().sendRedirect(request, response, "/user-registration?error");
         } else {
             super.onAuthenticationFailure(request, response, exception);
         }
