@@ -24,4 +24,10 @@ public class UserRepository {
     public User getByEmail(String email) {
         return users.get(email);
     }
+
+    public User registerUser(String email, String password) {
+        User user = new User(email, password);
+        users.put(email, user);
+        return user;
+    }
 }

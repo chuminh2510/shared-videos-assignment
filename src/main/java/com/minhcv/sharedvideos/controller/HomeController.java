@@ -22,4 +22,9 @@ public class HomeController {
     String homePage(Model model) {
         return "home";
     }
+
+    @GetMapping("/user-registration")
+    String userRegistrationPage() {
+        return "pages/user_registration";
+    }
 }

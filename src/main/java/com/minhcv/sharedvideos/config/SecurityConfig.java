@@ -1,5 +1,6 @@
 package com.minhcv.sharedvideos.config;
 
+import com.minhcv.sharedvideos.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,6 +22,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService userDetailsService;
 
+    @Autowired
+    private UserRepository userRepo;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -31,6 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/home")
+                .failureHandler(getCustomAuthenticationFailureHandler())
                 .permitAll()
                 .and()
                 .logout()
@@ -45,5 +50,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public CustomAuthenticationFailureHandler getCustomAuthenticationFailureHandler() {
+        return new CustomAuthenticationFailureHandler(userRepo);
     }
 }
