@@ -4,6 +4,7 @@ import com.minhcv.sharedvideos.api.YoutubeApi;
 import com.minhcv.sharedvideos.dto.YoutubeResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,11 +14,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class YoutubeServiceImpl implements YoutubeService {
 
+    @Value("${youtube.api_key}")
+    private String API_KEY;
+
     @Autowired
     private YoutubeApi youtubeApi;
 
     @Override
     public YoutubeResponse findVideoById(String videoId) {
-        return youtubeApi.getVideoById("", videoId);
+        String fields = "snippet,contentDetails,statistics";
+        return (YoutubeResponse) youtubeApi.getVideoById(API_KEY, videoId, fields);
     }
 }
