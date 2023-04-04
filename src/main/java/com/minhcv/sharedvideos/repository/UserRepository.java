@@ -1,14 +1,27 @@
 package com.minhcv.sharedvideos.repository;
 
 import com.minhcv.sharedvideos.model.User;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import javax.annotation.PostConstruct;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author minh.chu
  * @since 03/04/2023
  */
+@Repository
 public class UserRepository {
-    //TODO Use memory to store instead of connecting to DB
-    List<User> users;
+    Map<String, User> users;
+
+    @PostConstruct
+    void init() {
+        users = new HashMap<>();
+        users.put("admin@gmail.com", new User("admin@gmail.com", "$2a$10$.JFqhCHu2TYBHH1V5dh7ReWyr6amBkWboBCczqqsdNkqqalDbDZ2W"));
+    }
+
+    public User getByEmail(String email) {
+        return users.get(email);
+    }
 }

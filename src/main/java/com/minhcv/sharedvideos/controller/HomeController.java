@@ -10,11 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @since 03/04/2023
  */
 @Controller
-@RequestMapping("/")
+@RequestMapping("")
 public class HomeController {
 
-    @GetMapping("")
-    String home(Model model) {
+    @GetMapping("/")
+    String defaultPage(Model model) {
+        return "home";
+    }
+
+    @GetMapping("/home")
+    String homePage(Model model) {
         return "home";
     }
 }
