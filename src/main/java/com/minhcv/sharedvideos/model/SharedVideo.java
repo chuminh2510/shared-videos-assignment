@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -41,7 +42,8 @@ public class SharedVideo {
         this.description = info.getSnippet().getDescription();
         this.votedUpCount = 0;
         this.votedDownCount = 0;
-        this.url = "";
+        this.votes = new HashMap<>();
+        this.url = "https://www.youtube.com/embed/" + info.getId();
         this.sharedAt = new Date();
     }
 }

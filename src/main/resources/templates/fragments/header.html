@@ -25,10 +25,17 @@
                         <input type="text" class="form-control" id="username" name="username" placeholder="Email" value="admin@gmail.com">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control ml-2" id="password" name="password" placeholder="Password" value="@">
+                        <input type="password" class="form-control ml-2" id="password" name="password" placeholder="Password" value="">
                     </div>
                     <button type="submit" class="btn btn-primary ml-2">Login / Register</button>
                 </form>
+                <th:block th:if="${param.error}">
+                    <div class="form-group">
+                        <small id="errorLoginMsg" class="text-danger" >
+                            Username and Password are invalid
+                        </small>
+                    </div>
+                </th:block>
             </div>
 
         </nav>

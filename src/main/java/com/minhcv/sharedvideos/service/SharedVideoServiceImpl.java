@@ -41,7 +41,6 @@ public class SharedVideoServiceImpl implements SharedVideoService {
         }
         SharedVideo sharedVideo = new SharedVideo(youtubeResponse.getItems().get(0));
         sharedVideo.setSharedBy(sharedBy);
-        sharedVideo.setUrl("https://www.youtube.com/embed/" + videoId);
         sharedVideoRepo.add(videoId, sharedVideo);
         return sharedVideo;
     }

@@ -25,15 +25,13 @@ public class PageController {
 
     @GetMapping("/")
     String defaultPage(@AuthenticationPrincipal UserDetails userDetails, Model model) {
-        Collection<SharedVideo> sharedVideos = sharedVideoService.list();
-        model.addAttribute("sharedVideos", sharedVideos);
+        getHomePageInfo(userDetails, model);
         return "home";
     }
 
     @GetMapping("/home")
     String homePage(@AuthenticationPrincipal UserDetails userDetails, Model model) {
-        Collection<SharedVideo> sharedVideos = sharedVideoService.list();
-        model.addAttribute("sharedVideos", sharedVideos);
+        getHomePageInfo(userDetails, model);
         return "home";
     }
 
@@ -58,7 +56,6 @@ public class PageController {
                 }
             });
         }
-
         model.addAttribute("sharedVideos", sharedVideos);
     }
 }
