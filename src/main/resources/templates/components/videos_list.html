@@ -9,8 +9,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-8">
-                <div th:replace="components/video_info :: videoInfo">
-                </div>
+                <th:block th:each="sharedVideo : ${sharedVideos}">
+                    <div th:replace="components/video_info :: videoInfo(videoInfo=${sharedVideo})">
+                    </div>
+                </th:block>
             </div>
         </div>
 

@@ -23,7 +23,7 @@ public class YoutubeResponse {
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
-    static class VideoInfo {
+    public static class VideoInfo {
         private String id;
         private SnippetInfo snippet;
         private StatisticsInfo statistics;
@@ -32,7 +32,7 @@ public class YoutubeResponse {
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
-    static class SnippetInfo {
+    public static class SnippetInfo {
         private String title;
         private String description;
     }
@@ -40,7 +40,7 @@ public class YoutubeResponse {
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
-    static class StatisticsInfo {
+    public static class StatisticsInfo {
         private int viewCount;
         private int likeCount;
         private int favoriteCount;
@@ -50,7 +50,7 @@ public class YoutubeResponse {
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
-    class PageInfo {
+    public class PageInfo {
         private Integer totalResults;
         private Integer resultsPerPage;
     }
