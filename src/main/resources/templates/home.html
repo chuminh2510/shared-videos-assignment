@@ -4,10 +4,12 @@
 <head>
     <title>Funny Movies</title>
     <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-          crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-          crossorigin="anonymous">
+    <th:fragment name="styles">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+              crossorigin="anonymous">
+    </th:fragment>
 </head>
 <body>
     <header th:replace="fragments/header :: header">

@@ -16,7 +16,7 @@ import java.util.Map;
 @Setter
 public class SharedVideo {
     @Getter
-    enum VoteType {
+    public enum VoteType {
         UP,
         DOWN;
     }
@@ -32,6 +32,8 @@ public class SharedVideo {
     private String url;
 
     private Date sharedAt;
+
+    private VoteType selfVote;
 
     public SharedVideo(YoutubeResponse.VideoInfo info) {
         this.id = info.getId();

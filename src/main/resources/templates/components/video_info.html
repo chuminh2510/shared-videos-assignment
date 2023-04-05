@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Video Info</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          crossorigin="anonymous">
 </head>
 <body>
     <div th:fragment="videoInfo(videoInfo)">
-        <div class="card mx-3">
+        <div class="card my-3">
             <div class="row no-gutters">
                 <div class="col-md-4">
                     <iframe th:src="${videoInfo.url}">
@@ -15,8 +17,22 @@
                 <div class="col-md-8">
                     <div class="card-body">
                         <h6 class="card-title text-danger" th:text="${videoInfo.title}">Movie title</h6>
-                        <p class="card-text"><small class="text-muted">Shared by </small><small class="text-muted" th:text="${videoInfo.sharedBy}">abc@gmail.com</small></p>
-                        <p class="card-text"><small class="text-muted" th:text="${videoInfo.votedUpCount}">Vote Up</small><i class="fa-solid fa-thumbs-up"></i><small class="text-muted" th:text="${videoInfo.votedDownCount}">Vote Down</small><i class="fa-solid fa-thumbs-down"></i></p>
+                        <p class="card-text"><small class="text-muted">Shared by </small><small class="text-muted" th:text="${videoInfo.sharedBy}">abc@gmail.com</small>
+                            <th:block sec:authorize="isAuthenticated()">
+                                <th:block th:if="${videoInfo.selfVote}">
+                                    <th:block th:if="${videoInfo.selfVote == 'UP'}">
+                                        <img class="mx-2" th:src="@{/icon/thumbs-up-solid.svg}" width="24" height="24" />
+                                    </th:block>
+                                    <th:block th:if="${videoInfo.selfVote == 'DOWN'}">
+                                        <img class="mx-2" th:src="@{/icon/thumbs-down-solid.svg}" width="24" height="24" />
+                                    </th:block>
+                                </th:block>
+                                <th:block th:unless="${videoInfo.selfVote}">
+                                    <img class="mx-2" th:src="@{/icon/thumbs-up-regular.svg}" width="24" height="24" /><img class="mx-2" th:src="@{/icon/thumbs-down-regular.svg}" width="24" height="24" />
+                                </th:block>
+                            </th:block>
+                        </p>
+                        <p class="card-text"><small class="text-muted mr-2" th:text="${videoInfo.votedUpCount}">Vote Up</small><img class="mr-2" th:src="@{/icon/thumbs-up-regular.svg}" width="24" height="24" /><small class="text-muted mx-2" th:text="${videoInfo.votedDownCount}">Vote Down</small><img th:src="@{/icon/thumbs-down-regular.svg}" width="24" height="24" /></i></p>
                         <p class="card-text"><small class="text-muted">Description:</small></p>
                         <p class="card-text font-weight-bold" th:text="${videoInfo.description}">Default description</p>
                     </div>

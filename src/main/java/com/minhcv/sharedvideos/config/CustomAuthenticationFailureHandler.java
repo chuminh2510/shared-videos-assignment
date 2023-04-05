@@ -26,6 +26,7 @@ public class CustomAuthenticationFailureHandler extends SimpleUrlAuthenticationF
                                         AuthenticationException exception) throws IOException, ServletException {
 
         String username = request.getParameter("username");
+        String password = request.getParameter("password");
 
         if (userRepo.getByEmail(username) == null) {
             getRedirectStrategy().sendRedirect(request, response, "/user-registration?error");
