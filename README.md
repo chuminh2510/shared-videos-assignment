@@ -12,6 +12,8 @@
   - For example: email format, legal password
 - Use RAM instead of database to store videos, users
   - Everything will be reset after restarting the application
+- High level design will be considered
+  - Rate limiter, Circuit breaker, retryable ...
 
 - Don't have VISA to setup payment method for Cloud -> Couldn't deploy app to go live :(
 
