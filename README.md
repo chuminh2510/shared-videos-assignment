@@ -8,9 +8,11 @@
 ## Limitations
 
 - There is no much validation for exceptional cases
-    - For example: email format, legal password
+  - For example: email format, legal password
 - Use RAM instead of database to store videos, users
-    - Everything will be reset after restarting the application
+  - Everything will be reset after restarting the application
+
+- Don't have VISA to setup payment method for Cloud -> Couldn't deploy app to go live :(
 
 ## Default
 
