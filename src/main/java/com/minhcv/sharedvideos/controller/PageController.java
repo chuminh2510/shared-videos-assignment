@@ -58,4 +58,9 @@ public class PageController {
         }
         model.addAttribute("sharedVideos", sharedVideos);
     }
+
+    @GetMapping("/login")
+    String loginPage() {
+        return "redirect:/home";
+    }
 }

@@ -32,8 +32,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.addFilterBefore(new UserExistsBeforeAuthenticationFilter(userRepo, passwordEncoder()), UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
-                .antMatchers("/**").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("/", "/home", "/js/**", "/css/**", "/icon/**", "/webjars/**", "/login").permitAll()
+                .anyRequest()
+                .authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
