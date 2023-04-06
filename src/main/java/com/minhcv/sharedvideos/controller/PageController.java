@@ -35,11 +35,6 @@ public class PageController {
         return "home";
     }
 
-    @GetMapping("/user-registration")
-    String userRegistrationPage() {
-        return "pages/user_registration";
-    }
-
     @GetMapping("/share-video")
     String shareVideoPage() {
         return "pages/share_video";
