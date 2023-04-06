@@ -3,6 +3,7 @@
 ## Pre-requisites
 
 - Java 11 or more
+- Maven 3.8.1
 - Youtube API key (https://console.cloud.google.com/)
 
 ## Limitations
