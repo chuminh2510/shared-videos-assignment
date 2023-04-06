@@ -58,6 +58,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public CustomAuthenticationFailureHandler getCustomAuthenticationFailureHandler() {
-        return new CustomAuthenticationFailureHandler(userRepo);
+        return new CustomAuthenticationFailureHandler();
     }
 }

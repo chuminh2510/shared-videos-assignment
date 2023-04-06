@@ -1,6 +1,5 @@
 package com.minhcv.sharedvideos.config;
 
-import com.minhcv.sharedvideos.repository.UserRepository;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 
@@ -15,10 +14,7 @@ import java.io.IOException;
  */
 public class CustomAuthenticationFailureHandler extends SimpleUrlAuthenticationFailureHandler {
 
-    private UserRepository userRepo;
-
-    public CustomAuthenticationFailureHandler(UserRepository userRepo) {
-        this.userRepo = userRepo;
+    public CustomAuthenticationFailureHandler() {
     }
 
     @Override

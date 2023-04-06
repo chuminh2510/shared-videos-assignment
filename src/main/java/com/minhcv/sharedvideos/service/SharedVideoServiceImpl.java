@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import java.util.Collection;
+import java.util.UUID;
 
 /**
  * @author minh.chu
@@ -41,7 +42,9 @@ public class SharedVideoServiceImpl implements SharedVideoService {
         }
         SharedVideo sharedVideo = new SharedVideo(youtubeResponse.getItems().get(0));
         sharedVideo.setSharedBy(sharedBy);
-        sharedVideoRepo.add(videoId, sharedVideo);
+
+        String uuid = UUID.randomUUID().toString();
+        sharedVideoRepo.add(uuid + "." + videoId, sharedVideo);
         return sharedVideo;
     }
 }
